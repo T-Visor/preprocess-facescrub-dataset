@@ -20,4 +20,5 @@ find . -depth -name "*.jpg" -exec sh -c 'f="{}"; mv -- "$f" "${f%_attacked.jpg}.
 https://stackoverflow.com/questions/53074712/how-to-split-folder-of-images-into-test-training-validation-sets-with-stratified
 
 # For moving files in subdirectories into the main directory
-https://superuser.com/questions/355891/move-all-files-from-subdirectories-to-current-directory
+# https://superuser.com/questions/355891/move-all-files-from-subdirectories-to-current-directory
+find . -type f -mindepth 2 -exec mv -i -- {} . \; && find . -depth -mindepth 1 -type d -empty -exec rmdir {} \;
