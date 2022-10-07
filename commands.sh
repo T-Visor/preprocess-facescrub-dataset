@@ -11,3 +11,7 @@ find . -type f ! -name '*_attacked.png' -delete
 
 # Remove redundant files from Fawkes preprocessed dataset.
 find . -type f ! -name '*_cloaked.png' -delete
+
+# Convert files preprocessed with Lowkey back to their original names.
+# PRECONDITION: files have been converted from png to jpg with mogrify.
+find . -depth -name "*.jpg" -exec sh -c 'f="{}"; mv -- "$f" "${f%_attacked.jpg}.jpg"' \;
