@@ -1,10 +1,10 @@
 #!/bin/sh
 
 # Convert all images in this dataset from '.jpeg' to '.jpg'.
-for directory in ./*/ ; do (cd '$directory' && mogrify -format jpg *.jpeg); done
+for d in ./*/ ; do (cd "$d" && mogrify -format jpg *.jpeg); done
 
 # Remove the old '.jpeg' files.
-for directory in ./*/ ; do (cd '$directory' && rm *.jpeg); done
+for d in ./*/ ; do (cd "$d" && rm *.jpeg); done
 
 # Remove redundant files from Lowkey preprocessed dataset.
 find . -type f ! -name '*_attacked.png' -delete
