@@ -35,3 +35,6 @@ for d in ./*/ ; do (cd "$d/lowkey_to_original/test_latest/images" && mv *.png ..
 
 # Remove all remaining subdirectories
 for d in ./*/ ; do (cd "$d" && rm -rf lowkey_to_original) ; done
+
+# Remove all the original images from the image-to-image translation and only keep the generated images.
+for d in ./*/ ; do (cd "$d" && rm *_real.png) ; done
