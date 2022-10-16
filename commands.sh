@@ -32,3 +32,6 @@ find . -type f -mindepth 2 -exec mv -i -- {} . \; && find . -depth -mindepth 1 -
 # NOTE: change 'lowkey_to_original' to the corresponding immediate subdirectory
 # Move all generated images back 3 directories
 for d in ./*/ ; do (cd "$d/lowkey_to_original/test_latest/images" && mv *.png ../../..) ; done
+
+# Remove all remaining subdirectories
+for d in ./*/ ; do (cd "$d" && rm -rf lowkey_to_original) ; done
