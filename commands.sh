@@ -22,3 +22,13 @@ https://stackoverflow.com/questions/53074712/how-to-split-folder-of-images-into-
 # For moving files in subdirectories into the main directory
 # https://superuser.com/questions/355891/move-all-files-from-subdirectories-to-current-directory
 find . -type f -mindepth 2 -exec mv -i -- {} . \; && find . -depth -mindepth 1 -type d -empty -exec rmdir {} \;
+
+
+
+###################################################################################################
+# Dealing with results from cyclegan and pix2pix repository
+###################################################################################################
+
+# NOTE: change 'lowkey_to_original' to the corresponding immediate subdirectory
+# Move all generated images back 3 directories
+for d in ./*/ ; do (cd "$d/lowkey_to_original/test_latest/images" && mv *.png ../../..) ; done
